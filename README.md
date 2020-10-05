@@ -1,11 +1,9 @@
-# HOya
-
 # Chapter 1. 데이터 시각화
 
 Sin Hyung Park 
 10/5/2020
 
-<<<<<<< HEAD
+
 > _"간단한 그래프는 데이터 분석가에게 다른 어떤 것보다도 많은 정보를 제공한다."_
 >
 >
@@ -658,6 +656,5 @@ ggplot(data = mpg, mapping = aes(x = class, y = hwy)) +
             <좌표계 함수> +
             <면분할 함수>
       
-=======
 
 
