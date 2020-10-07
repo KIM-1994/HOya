@@ -1,6 +1,6 @@
 ---
 title: "Chap2_Workflow_Basic"
-author: "DeukJung"
+author: "KIM DONG HO"
 date: '2020 9 29 '
 output:
   html_document:
@@ -59,7 +59,7 @@ x
 this_is_a_really_long_name <- 2.5
 ```
 
-![RStudio완성기능](C:\Users\emrwn\Desktop\R_Education_Data\Review_R_edu\R_NCS_2020\Markdown\image./RStudio.jpg)
+![RStudio완성기능](image./RStudio.jpg)
 
  6. 명령어를 수정해야할 경우, <span style="color: red;">Cmd/Ctrl + ↑</span> 를 사용하면 명령어 중 그 문자로 시작 하는 것들을 보여준다.
  
@@ -84,7 +84,7 @@ R_rocks
 function_name(arg1 = val1, arg2 = val2, ...)
 ```
 - 숫자 시퀀스 seq()를 이용해보자.
-![](C:\Users\emrwn\Desktop\R_Education_Data\Review_R_edu\R_NCS_2020\Markdown\image./seq.jpg)
+![](image./seq.jpg)
 
     - 팝업되는 툴팁은 해당함수의 인수와 목적을 알려준다.
     - 도움이 더 필요하면 F1 키를 눌러서 하단 오른쪽 창의 Help 탭에 있는 세부내용을 참고하자.  
@@ -92,7 +92,7 @@ function_name(arg1 = val1, arg2 = val2, ...)
     
     
 - 화살표로 원하는 함수를 선택했을 때 <span style="color: red;">Tab</span>을 누르면 여는 괄호( 와 닫는 괄호) 한 쌍이 생성된다.
-![](C:\Users\emrwn\Desktop\R_Education_Data\Review_R_edu\R_NCS_2020\Markdown\image./make_seq.jpg)
+![](image./make_seq.jpg)
   
 - 1, 10을 타이핑 하고 실행해보자. 
 ```{r}
@@ -125,6 +125,6 @@ y
 ```
   
 - 상단 오른쪽 창의 Enviroment에서 생성한 객체를 모두 볼 수 있다.
-![](C:\Users\emrwn\Desktop\R_Education_Data\Review_R_edu\R_NCS_2020\Markdown\image./enviroment.png)
+![](image./enviroment.png)
 
 

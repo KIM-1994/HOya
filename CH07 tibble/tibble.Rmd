@@ -1,6 +1,6 @@
 ---
 title: "Ch08_tibble로하는티블"
-author: "bangilwoo"
+author: "KIM DONG HO"
 date: '2020 10 5 '
 output: html_document
 ---

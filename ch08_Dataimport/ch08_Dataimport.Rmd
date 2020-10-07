@@ -1,6 +1,6 @@
 ---
 title: "8장 readr로 하는 데이터 불러오기"
-author: "choi"
+author: "KIM DONG HO"
 date: '2020 9 30 '
 output:
   html_document:

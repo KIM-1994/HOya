@@ -1,6 +1,6 @@
 ---
 title: "Data visualisation"
-author: "박신형"
+author: "KIM DONG HO"
 date: '2020 10 3 '
 output: html_document
 ---

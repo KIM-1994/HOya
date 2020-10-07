@@ -1,6 +1,6 @@
 ---
 title: "10. Relational data_dplyr"
-author: "ne_choi"
+author: "KIM DONG HO"
 date: '2020 10 6 '
 output:
   html_document:

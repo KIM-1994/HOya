@@ -1,6 +1,6 @@
 ---
 title: "Chap6"
-author: "DJ"
+author: "KIM DONG HO"
 date: '2020 10 5 '
 output: 
   html_document:
@@ -37,7 +37,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Tools -> Global Options -> General 에서 설정가능
   
-![](C:\Users\emrwn\Desktop\R_Education_Data\Review_R_edu\R_NCS_2020\Markdown\image./rstudio-workspace.png)
+![](image./rstudio-workspace.png)
 
 이렇게 하면 RStudio를 다시 시작할 때, 마지막으로 실해한 코드의 결과가 남아 있지 않기 때문에 귀찮을 수 있지만,  
 코드의 관계를 파악할 수 있고, 중요한 작업의 코드 자체를 저장하지 않고 작업공간에만 방치하는 심각한 사태를 방지할 수 있다.
@@ -51,7 +51,7 @@ R에서 파일을 불러오고자 할 때 작업 디렉터리에서 찾으며, �
 
 RStudio에서는 현재 작업 디렉터리를 콘솔 상단에 표시한다.
 
-![](C:\Users\emrwn\Desktop\R_Education_Data\Review_R_edu\R_NCS_2020\Markdown\image./rstudio-wd.png)
+![](image./rstudio-wd.png)
 
 또한, getwd()를 실행하면 R코드로 작업 디렉터리를 출력할 수 있다.
 
@@ -97,12 +97,12 @@ R 전문가는 프로젝트와 관련된 모든 파일(입력 데이터, R 스�
 
 File > New Project를 클릭한 후 다음의 작업을 수행해보자.
 
-![](C:\Users\emrwn\Desktop\R_Education_Data\Review_R_edu\R_NCS_2020\Markdown\image./rstudio-project-1.png)
+![](image./rstudio-project-1.png)
 
-![](C:\Users\emrwn\Desktop\R_Education_Data\Review_R_edu\R_NCS_2020\Markdown\image./rstudio-project-2.png)
+![](image./rstudio-project-2.png)
 
 
-![](C:\Users\emrwn\Desktop\R_Education_Data\Review_R_edu\R_NCS_2020\Markdown\image./rstudio-project-3.png)
+![](image./rstudio-project-3.png)
   
 프로젝트 이름을 r4ds라고 짓고, 어떤 하위 디렉터리에 프로젝트를 넣을지 신중히 결정하자.  
 

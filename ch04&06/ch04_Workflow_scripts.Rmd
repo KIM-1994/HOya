@@ -1,7 +1,6 @@
 ---
-
 title: "Chap4"
-author: "DJ"
+author: "KIM DONG HO"
 date: '2020 10 5 '
 output:
   html_document:
@@ -22,9 +21,9 @@ knitr::opts_chunk$set(echo = TRUE)
 따라서 더 많은 작업 공간을 확보하기 위해 스크립트 편집기를 사용하는 것이 좋다.  
   
 파일 메뉴를 클릭하고 **<span style="color: red;">새 파일에서 R 스크립트를 선택</span>**하거나 키보드 단축키 **<span style="color: red;">Cmd/Ctrl + Shift + N</span>**을 사용하여 스크립트 파일을 열 수 있다.
-![](C:\Users\emrwn\Desktop\R_Education_Data\Review_R_edu\R_NCS_2020\Markdown\image./Insert_Script1.png)
-![](C:\Users\emrwn\Desktop\R_Education_Data\Review_R_edu\R_NCS_2020\Markdown\image./Insert_Script2.png)
-![](C:\Users\emrwn\Desktop\R_Education_Data\Review_R_edu\R_NCS_2020\Markdown\image./rstudio-editor.png)
+![](image./Insert_Script1.png)
+![](image./Insert_Script2.png)
+![](image./rstudio-editor.png)
 
 ## 4.1 코드 실행하기
 
@@ -57,15 +56,15 @@ not_cancelled %>%
 ## 4.2 Rstudio 진단
 스크립트 편집기에서 빨간색 선과 사이드바의 X자 표시로 구문 오류를 강조 표시한다.
 
-![](C:\Users\emrwn\Desktop\R_Education_Data\Review_R_edu\R_NCS_2020\Markdown\image./rstudio-diagnostic.png)
+![](image./rstudio-diagnostic.png)
 
 X자 위로 마우스를 가져가면 문제가 무엇인지 알 수 있다.
 
-![](C:\Users\emrwn\Desktop\R_Education_Data\Review_R_edu\R_NCS_2020\Markdown\image./rstudio-diagnostic-tip.png)
+![](image./rstudio-diagnostic-tip.png)
 
 또한, RStudio는 잠재적인 문제에 대해서도 알려준다.
 
-![](C:\Users\emrwn\Desktop\R_Education_Data\Review_R_edu\R_NCS_2020\Markdown\image./rstudio-diagnostic-warn.png)
+![](image./rstudio-diagnostic-warn.png)
 
 ### 4.2.1 연습문제
 RStudio Tips 트위터 계정인 *@rstudiotips*에서 다양한 팁을 찾아볼 수 있다.

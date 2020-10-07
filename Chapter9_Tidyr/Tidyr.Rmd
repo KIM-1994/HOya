@@ -1,5 +1,7 @@
 ---
 title: "tidyr로 하는 타이디 데이터"
+author: "KIM DONG HO"
+date: '2020 10 6 '
 output:
   html_document:
    toc : true
