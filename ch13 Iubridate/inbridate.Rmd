@@ -1,6 +1,6 @@
 ---
 title: "lubridate로 하는 날짜와 시간"
-author: "LEE HAN"
+author: "KIM DONG HO"
 date: '2020 10 8 '
 output:
   html_document:
