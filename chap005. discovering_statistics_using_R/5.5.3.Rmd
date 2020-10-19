@@ -1,6 +1,5 @@
 ---
 title: "CH5.5.3"
-author: "Han Kwang su"
 date: '2020 10 18 '
 output: html_document
 ---
