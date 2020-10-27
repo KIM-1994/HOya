@@ -1,0 +1,141 @@
+---
+title: "16장 벡터"
+author: "KIM DONG HO"
+date: '2020 9 28 '
+output:
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+```{r}
+library(tidyverse) # 데이터 가공 및 시각화
+library(readxl) # 엑셀파일 불러오기 패키지
+```
+
+sessionInfo()
+
+
+readr::guess_encoding("sample/Samsungcard.csv", n_max = 100)
+samsung_card <- read_xlsx("sample/Samsungcard.xlsx")
+samsung_card2 <- read.csv("sample/Samsungcard.csv", fileEncoding = "EUC-KR")
+head(samsung_card)
+head(samsung_card2)
+
+rm(samsung_card2) # 객체 지우는 함수
+ls() # 현재 저장된 객체 확인하는 함수
+shinhancard <- read_xlsx("sample/Shinhancard.xlsx")
+head(shinhancard)
+shinhancard <- shinhancard %>%
+  select(-c(6:8))
+head(shinhancard)
+
+gin_8a <- read_csv("sample/GIN00008A.csv")
+gin_9a <- read_csv("sample/GIN00009A.csv")
+glimpse(gin_8a)
+glimpse(gin_9a)
+
+
+library(jsonlite)
+GIN_10m <- fromJSON("sample/center_GIN00010M.json")
+glimpse(GIN_10m)
+
+readr::guess_encoding("sample/Mcorporation/KDX시각화경진대회_SSC_DATA.csv")
+ssc_data <- read_csv("sample/Mcorporation/KDX시각화경진대회_SSC_DATA.csv", locale = locale("ko", encoding = "EUC-KR"))
+glimpse(ssc_data)
+
+```{r}
+
+library(tidyverse) # 데이터 가공 및 시각화
+library(readxl)
+library(jsonlite)
+#파일 합치기
+files <- list.files(path = "sample/Mcorporation/상품 카테고리 데이터_KDX 시각화 경진대회 Only", pattern = "*.xlsx", full.names = T)
+
+products <- sapply(files, read_excel, simplify=FALSE) %>% 
+  bind_rows(.id = "id") %>% 
+  select(-id)
+
+glimpse(products)
+```
+```{r}
+library(ggplot2)
+library(lubridate)
+library(dplyr)
+library(zoo)
+```
+```{r}
+products %>% 
+  mutate(년월 = as.yearmon(as.character(구매날짜), "%Y%m")) %>%
+  rename(date = "년월") %>%
+  filter(OS유형 != "없음") %>%
+  group_by(date, OS유형) %>%
+  summarise(mean = mean(구매금액)) %>%
+  ggplot(aes(x = date)) +
+  geom_line(aes(y = mean, colour = OS유형),lwd = 2) +
+  theme(axis.text=element_text(size=12),
+        axis.title=element_text(size=14,face="bold")) +
+  labs(title="OS유형별", 
+       subtitle="Avg. Sales from 'Shinhan Card' Dataset",
+       caption="Source: Shinhan Card",
+       y="Avg. Sales (1000)") +
+  theme(legend.title = element_text(size = 15, face = "bold")) +
+  theme(legend.text = element_text(size = 12))
+```
+
+
+```{r}
+products %>%
+  filter(OS유형 == "WINDOWS") %>%
+  group_by(카테고리명, OS유형) %>%
+  summarise(mean = mean(구매금액)) %>%
+  arrange(desc(mean)) %>%
+  head(10) %>%
+ggplot(aes(x = 카테고리명, y = mean, fill = OS유형)) +
+  geom_bar(stat="identity", position = "dodge", width=.5) + 
+  theme(axis.text.x = element_text(angle=65, vjust=0.6,)) + 
+  theme(axis.text=element_text(size=12),
+        axis.title=element_text(size=14,face="bold")) +
+  labs(title="Ordered Bar Chart", 
+       subtitle="카테고리명 Vs Avg. 구매금액 by OS유형", 
+       caption="source: products")
+```
+```{r}
+products %>%
+  filter(OS유형 == "WINDOWS" & 고객나이 > 0 & 고객나이 < 80) %>%
+  group_by(고객나이, OS유형) %>%
+  summarise(mean = mean(구매금액)) %>%
+  arrange(desc(mean)) %>%
+  ggplot(aes(x = 고객나이, y = mean, fill = OS유형)) +
+  geom_bar(stat="identity", position = "dodge", width=.5) + 
+  theme(axis.text.x = element_text(angle=65, vjust=0.6,)) + 
+  labs(title="Ordered Bar Chart", 
+       subtitle="카테고리명 Vs Avg. 구매금액 by OS유형", 
+       caption="source: products")
+
+
+
+glimpse(products)
+```
+
+
+
+
+
+library(scales)
+products %>%
+  filter(OS유형 == "WINDOWS" & 고객나이 > 0 & 고객나이 < 80) %>%
+  group_by(고객나이, OS유형) %>%
+  summarise(mean = mean(구매금액)) %>%
+  arrange(desc(mean)) %>%
+  ggplot(aes(x = 고객나이, y = mean, fill = OS유형)) +
+  geom_bar(stat="identity", position = "dodge", width=5) + 
+  scale_x_continuous(breaks = seq(0, 80, by = 10)) +
+  theme(axis.text.x = element_text(angle=65, vjust=0.6)) + 
+  labs(title="Ordered Bar Chart", 
+       subtitle="카테고리명 Vs Avg. 구매금액 by OS유형", 
+       caption="source: products")
+
