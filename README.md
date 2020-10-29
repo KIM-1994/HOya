@@ -48,4 +48,3 @@
 * 기간 : 2020.10.10 ~ 2020.10.24
 * 내용 : 공모전에서 주어진 카드사용내역서 파일을 참조하여 전략적 온라인 광고 노출을 위한 OS유형별 소비패턴을 분석한 프로젝트
 
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FKIM-1994&count_bg=%23DE7474&title_bg=%23ECA2A2&icon=iconify.svg&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
