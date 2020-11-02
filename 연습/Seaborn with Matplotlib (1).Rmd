@@ -90,3 +90,100 @@ fig.tight_layout()
 
 ## 1.4. plot with seaborn
 [seaborn scatterplot](https://seaborn.pydata.org/generated/seaborn.scatterplot.html)
+
+  + 이번엔 같은 줄거리를 seaborn으로 그려 봅니다.
+  + 위 코드에 아래 세 줄만 추가합니다.
+```Python
+# plot 1 : seaborn
+ sns.scatterplot ( "bill_length_mm" , "bill_depth_mm" , hue = "species" , data = penguins, alpha = 0.3 , ax = axes [ 1 ]) 
+axes [ 1 ] .set_xlabel ( "Bill Length (mm) ) " ) 
+axes [ 1 ] .set_ylabel ( "Bill Depth (mm) " )
+```
+![](img\e.png)
+
+  + 단 세 줄로 거의 동일한 그림이 나왔습니다.
+    + scatter plot의 점 크기만 살짝 작습니다.
+    + label의 투명도만 살짝 다릅니다.
+  + seaborn 명령 `scatterplot()`을 그대로 사용했습니다.
+  + x축과 y축 label도 바꾸었습니다.
+    + `ax=axes[1]` 인자에서 볼 수 있듯, 존재하는 `axes`에 그림만 얹었습니다.
+    + **matplotlib 틀 + seaborn 그림** 이므로, matplotlib 명령이 모두 통합니다.
+    
+## 1.5. matplotlib + seaborn & seaborn + matplotlib
+
+  + matplotlib과 seaborn이 자유롭게 섞일 수 있습니다.
+    + **matplotlib 산점도 위에 seaborn 추세선**을 얹을 수 있고,
+    + **seaborn 산점도 위에 matplotlib 중심점**을 얹을 수 있습니다.
+  + 파이썬 코드는 다음과 같습니다.
+```Python
+fig, axes = plt.subplots(ncols=2, figsize=(8, 4))
+
+species_u = penguins["species"].unique()
+
+# plot 0 : matplotlib + seaborn
+for i, s in enumerate(species_u):
+    # matplotlib 산점도
+    axes[0].scatter(penguins["bill_length_mm"].loc[penguins["species"]==s],
+                   penguins["bill_depth_mm"].loc[penguins["species"]==s],
+                   c=f"C{i}", label=s, alpha=0.3
+                  )
+				  
+    # seaborn 추세선
+    sns.regplot("bill_length_mm", "bill_depth_mm", data=penguins.loc[penguins["species"]==s], 
+                scatter=False, ax=axes[0])
+    
+axes[0].legend(species_u, title="species")
+axes[0].set_xlabel("Bill Length (mm)")
+axes[0].set_ylabel("Bill Depth (mm)")
+
+# plot 1 : seaborn + matplotlib
+# seaborn 산점도
+sns.scatterplot("bill_length_mm", "bill_depth_mm", hue="species", data=penguins, alpha=0.3, ax=axes[1])
+axes[1].set_xlabel("Bill Length (mm)")
+axes[1].set_ylabel("Bill Depth (mm)")
+
+for i, s in enumerate(species_u):
+    # matplotlib 중심점
+    axes[1].scatter(penguins["bill_length_mm"].loc[penguins["species"]==s].mean(),
+                   penguins["bill_depth_mm"].loc[penguins["species"]==s].mean(),
+                   c=f"C{i}", alpha=1, marker="x", s=100
+                  )
+
+fig.tight_layout()
+```
+![](img\f.png)
+
+## 1.6. seaborn + seaborn + matplotlib
+  + 안 될 이유가 없습니다.
+  + seaborn `scatterplot` + seaborn `kdeplot` + matplotlib `text`입니다
+
+```Python
+fig, ax = plt.subplots(figsize=(6,5))
+
+# plot 0: scatter plot
+sns.scatterplot("bill_length_mm", "bill_depth_mm", color="k", data=penguins, alpha=0.3, ax=ax, legend=False)
+
+# plot 1: kde plot
+sns.kdeplot("bill_length_mm", "bill_depth_mm", hue="species", data=penguins, alpha=0.5, ax=ax, legend=False)
+
+# text:
+species_u = penguins["species"].unique()
+for i, s in enumerate(species_u):
+    ax.text(penguins["bill_length_mm"].loc[penguins["species"]==s].mean(),
+            penguins["bill_depth_mm"].loc[penguins["species"]==s].mean(),
+            s = s, fontdict={"fontsize":14, "fontweight":"bold","color":"k"}
+            )
+
+ax.set_xlabel("Bill Length (mm)")
+ax.set_ylabel("Bill Depth (mm)")
+
+fig.tight_layout()
+```
+![](img\g.png)
+
+## 1.7. 결론
+  + **eaborn을 matplotlib과 마음껏 섞어쓰세요**
+  + **단, `axes`를 반환하는 명령어에 한해서 말입니다.**
+  + 이런 명령어를 `axes-level function` 이라고 합니다.
+  
+[출처]https://jehyunlee.github.io/2020/09/30/Python-DS-34-seaborn_matplotlib/
