@@ -64,3 +64,39 @@
 
 
 ## 프로그램 소스코드 설명
+### Library
+
+## * sentencepiece는 직접 설치가 필요합니다 *
+### py파일을 실행하기 전에 pip install sentencepiece를 입력해 주세요
+
+
+```python
+pip install tensorflow
+```
+
+
+```python
+from pandas import read_csv
+import re
+from sentencepiece import SentencePieceTrainer,SentencePieceProcessor
+from sklearn.feature_extraction.text import CountVectorizer
+from tensorflow.keras.layers import Dense, Dropout
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.callbacks import  EarlyStopping
+from tensorflow.python.keras.callbacks import ModelCheckpoint
+from sklearn.model_selection import StratifiedKFold
+from sklearn.metrics import log_loss
+from keras.models import load_model
+from numpy import mean
+from pandas import DataFrame
+from random import randint
+
+# 코드에 필요한 파일 : data, models, submissions
+# import os
+# os.mkdir('/content/drive/MyDrive/Dacon-소설작가분류/models')
+# os.mkdir('/content/drive/MyDrive/Dacon-소설작가분류/submissions)
+```
+
+
+
